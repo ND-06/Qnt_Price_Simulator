@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  color: white !important ;
+  margin: 30px;
+  height: 100%;
+}
+
+.logodiv {
+  margin-bottom: -10vh;
+  margin-top: -10vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  max-height: 23vh;
+}
+
+h1 {
+  display: none !important;
+}
+
+h2 {
+  color: white !important;
+}
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #262261; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #3498db,
+    #262261
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #3498db,
+    #262261
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  left: 0px;
+  top: 0px;
+}
+
+#resultParagraph {
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: white !important;
+}
+
+input {
+  margin-bottom: 1.25rem;
+}
+
+#cryptoinfo {
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+}
+
+.credits {
+  font-weight: 200;
+  font-size: 15px;
+  color: #30e9ff;
+  margin-bottom: 0%;
+  margin-top: 10%;
+}
+
+.credits:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.credits2 {
+  font-weight: 200;
+  font-size: 15px;
+  color: #30e9ff;
+  margin-bottom: 0%;
+}
+
+.credits2:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.btn-info {
+  background-color: transparent;
+  color: white;
+}
+
+.btn-info:hover {
+  background-color: rgba(28, 161, 184, 0.685);
+  color: white;
+}
+
+.form-control {
+  color: white;
+  background-color: #0fbed92a !important;
+  border: 1px #0fbdd96e solid;
+}
+
+textarea.form-control {
+  color: #63aeeb;
+}

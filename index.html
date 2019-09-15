@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="./img/favicon.png" />
+  <title>QNT Price Simulator</title>
+</head>
+
+<body>
+  <div id="particles-js"></div>
+
+  <h1>
+    QNT Price Simulator
+  </h1>
+
+  <wrapper>
+    <section>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="logodiv col-12 col-sm-10 col-md-10 col-lg-9 col-xl-9 logo d-flex justify-content-center">
+            <a href="https://www.quant.network/" target="_blank"><img class="img-responsive img-fluid"
+                src="img/logo.png" /></a>
+          </div>
+
+          <p class="col-12 col-sm-9 col-md-9 col-lg-9 col-xl-9 text-center" id="cryptoinfo"></p>
+
+
+          <div class="col-12 col-sm-9 col-md-9 col-lg-9 col-xl-9 mt-4 justify-content-center">
+            <label for="marketcapInput">Enter the expected Marketcap in USD</label>
+            <input type="text" class="form-control" contenteditable="true" id="marketcapInput" required />
+            <label for="circulatingSupplyInput">Enter the expected Circulating Supply</label>
+            <input type="text" class="form-control" contenteditable="true" id="circulatingSupplyInput" required />
+
+            <label for="tokenquantityInput">How many QNT tokens in your portfolio ?</label>
+            <input type="text" class="form-control" contenteditable="true" id="tokenquantityInput" required />
+          </div>
+
+          <div class="col-9 text-center mb-0 mt-3">
+            <button class="btn btn-info text-center mt-1">
+              <span class="calcButtonText">Calculate the price</span>
+            </button>
+          </div>
+
+          <div class="col-12 col-sm-9 col-md-9 col-lg-9 col-xl-9 d-flex justify-content-center mt-5">
+            <p class="text-info text-center" id="resultParagraph"></p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-12 col-sm-9 col-md-9 col-lg-9 col-xl-9 d-flex mt-1 justify-content-center">
+            <a href="http://www.coingecko.com" class="credits" target="_blank">Powered by CoinGecko API</a>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-12 col-sm-9 col-md-9 col-lg-9 col-xl-9 d-flex mt-1 justify-content-center">
+            <a href="https://github.com/Natdenice" class="credits2" target="_blank">Created by Nat</a>
+          </div>
+        </div>
+    </section>
+  </wrapper>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+  <script src="particles.js"></script>
+  <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/autonumeric@4.1.0"></script>
+  <script src="crypto.js" type="text/javascript"></script>
+</body>
+
+</html>
