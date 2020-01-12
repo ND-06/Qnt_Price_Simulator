@@ -49,42 +49,50 @@ function refresh() {
         'https://api.coingecko.com/api/v3/coins/quant-network',
       );
       const data = await dataResult.json();
-      // get current price in USD
-      const currentPrice = data.market_data.current_price.usd;
+
+      let currentPrice, satoshiPrice, vitalikPrice, athInBtc, athInEth, athInUsd,
+        volumeIn24H, usdValueChangeIn24H, btcValueChangeIn24H,
+        ethValueChangeIn24H, marketCapRank;
+
+      // Get current price in USD
+      currentPrice = data.market_data.current_price.usd;
       // Hardcode current CircSupply due to false circSupply data from API
-      const currentCirculatingSupply = 12072738;
+      currentCirculatingSupply = 12072738;
       // calculate the real mcap with the real circulating supply ( not from API )
-      const currentMarketCap = currentPrice * currentCirculatingSupply;
+      currentMarketCap = currentPrice * currentCirculatingSupply;
       // get current price in BTC
-      const satoshiPrice = data.tickers[4].converted_last.btc;
+      satoshiPrice = data.tickers[4].converted_last.btc;
+      // get current price in ETH
+      vitalikPrice = data.tickers[4].converted_last.eth;
       // get Ath In BTC
-      const athInBtc = data.market_data.ath.btc;
+      athInBtc = data.market_data.ath.btc;
       // get Ath in ETH
-      const athInEth = data.market_data.ath.eth;
+      athInEth = data.market_data.ath.eth;
       // get Ath in USD
-      const athInUsd = data.market_data.ath.usd;
+      athInUsd = data.market_data.ath.usd;
       // get 24H traded volume
-      const volumeIn24H = data.market_data.total_volume.usd;
+      volumeIn24H = data.market_data.total_volume.usd;
       // get valuechange in 24h ( USD )
-      let usdValueChangeIn24H = data.market_data.price_change_percentage_24h_in_currency.usd;
+      usdValueChangeIn24H = data.market_data.price_change_percentage_24h_in_currency.usd;
       // round the percentage of usdValueChangeIn24H
       usdValueChangeIn24H = usdValueChangeIn24H.toFixed(2);
       // get valuechange in 24h ( BTC )
-      let btcValueChangeIn24H = data.market_data.price_change_percentage_24h_in_currency.btc;
+      btcValueChangeIn24H = data.market_data.price_change_percentage_24h_in_currency.btc;
       // round the percentage of btcValueChangeIn24H
       btcValueChangeIn24H = btcValueChangeIn24H.toFixed(2);
       // get valuechange in 24H ( ETH )
-      let ethValueChangeIn24H = data.market_data.price_change_percentage_24h_in_currency.eth;
+      ethValueChangeIn24H = data.market_data.price_change_percentage_24h_in_currency.eth;
       // round the percentage of ethValueChangeIn24H
       ethValueChangeIn24H = ethValueChangeIn24H.toFixed(2);
       // get current mcap rank
-      const marketCapRank = data.market_cap_rank;
+      marketCapRank = data.market_cap_rank;
 
       // Display all data
       const coinInfo = `The current price of Quant Network Token is $${formatNumber(
         currentPrice,
         4,
-      )} ( Ƀ${satoshiPrice.toFixed(8)} ) with a current market cap of $${formatNumber(
+      )} ( Ƀ${satoshiPrice.toFixed(8)} / Ξ${vitalikPrice.toFixed(6)} ) with a current 
+        market cap of $${formatNumber(
         currentMarketCap,
         2,
       )} and a current circulating supply of ${formatNumber(
@@ -161,11 +169,9 @@ async function circSupplyAndMcapInInputs() {
     // Hardcode current CircSupply due to false circSupply data from API
     const currentCirculatingSupply = 12072738;
     circSupplyInput.set(12072738, { readOnly: false });
-
-    // Get the current price of HPB by calling API , we need this information to calculate
-    // the real marketcap ( cause CoinGecko API doesnt have the right circ supply of HPB)
+    // Get the current price of QNT by calling API , we need this information to calculate
+    // the real marketcap ( cause CoinGecko API doesnt have the right circ supply of QNT)
     const currentPrice = data.market_data.current_price.usd;
-
     // calculate the real mcap with the real circulating supply ( not from API )
     const currentMarketCap = currentPrice * currentCirculatingSupply;
     // Set directly the marketCap into marketCap Input ( and let the user modify this value too)
