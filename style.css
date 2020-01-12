@@ -4,11 +4,16 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   font-family: 'Lato', sans-serif;
   color: white !important ;
-  margin: 30px;
+  margin: 3rem;
   height: 100%;
+  font-size: 10px;
 }
 
 .logodiv {
@@ -46,28 +51,28 @@ h1 {
 }
 
 #resultParagraph {
-  font-weight: 500;
-  font-size: 1.1rem;
+  font-weight: 200;
+  font-size: 1.7rem;
   color: white !important;
 }
 
 input {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.7rem;
   color: red;
 }
 
 #cryptoinfo {
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 1.7rem;
+  font-weight: 200;
   color: white;
 }
 
 .credits {
   font-weight: 200;
-  font-size: 15px;
+  font-size: 1.7rem;
   color: #30e9ff;
-  margin-bottom: 0%;
-  margin-top: 10%;
+  margin-bottom: 0rem;
+  margin-top: 0rem;
 }
 
 .credits:hover {
@@ -77,9 +82,9 @@ input {
 
 .credits2 {
   font-weight: 200;
-  font-size: 15px;
+  font-size: 1.7rem;
   color: #30e9ff;
-  margin-bottom: 0%;
+  margin-bottom: 0rem;
 }
 
 .credits2:hover {
@@ -97,10 +102,15 @@ input {
   color: white;
 }
 
+.form-container {
+  font-size: 1.7rem;
+}
+
 .form-control {
   color: white;
   background-color: #0fbed92a !important;
   border: 1px #0fbdd96e solid;
+  font-size: 1.7rem;
 }
 
 .form-control:focus {
