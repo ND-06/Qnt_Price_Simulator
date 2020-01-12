@@ -49,7 +49,6 @@ function refresh() {
         'https://api.coingecko.com/api/v3/coins/quant-network',
       );
       const data = await dataResult.json();
-
       // get current price in USD
       const currentPrice = data.market_data.current_price.usd;
       // Hardcode current CircSupply due to false circSupply data from API
@@ -60,6 +59,8 @@ function refresh() {
       const satoshiPrice = data.tickers[4].converted_last.btc;
       // get Ath In BTC
       const athInBtc = data.market_data.ath.btc;
+      // get Ath in ETH
+      const athInEth = data.market_data.ath.eth;
       // get Ath in USD
       const athInUsd = data.market_data.ath.usd;
       // get 24H traded volume
@@ -95,6 +96,7 @@ function refresh() {
       ETH Value change in 24H : ${ethValueChangeIn24H} % <br>
       ATH in USD : $${athInUsd} <br>
       ATH in BTC : Ƀ${formatNumber(athInBtc, 8)} <br>
+      ATH in ETH : Ξ${formatNumber(athInEth, 6)} <br>
       Volume in 24 Hours : $${formatNumber(volumeIn24H, 2)} <br>
       QNT market cap rank #${marketCapRank}
       `;
