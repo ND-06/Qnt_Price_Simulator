@@ -23,7 +23,7 @@ body {
   align-items: center;
   text-align: center;
   margin: 0 auto;
-  max-height: 23vh;
+  max-height: 22vh;
 }
 
 h1 {
@@ -52,24 +52,24 @@ h1 {
 
 #resultParagraph {
   font-weight: 200;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   color: white !important;
 }
 
 input {
-  margin-bottom: 1.7rem;
+  margin-bottom: 1.6rem;
   color: red;
 }
 
 #cryptoinfo {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-weight: 200;
   color: white;
 }
 
 .credits {
   font-weight: 200;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   color: #30e9ff;
   margin-bottom: 0rem;
   margin-top: 0rem;
@@ -82,7 +82,7 @@ input {
 
 .credits2 {
   font-weight: 200;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   color: #30e9ff;
   margin-bottom: 0rem;
 }
@@ -90,6 +90,12 @@ input {
 .credits2:hover {
   color: white;
   text-decoration: none;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  font-size: 1.6rem;
 }
 
 .btn-info {
@@ -103,14 +109,14 @@ input {
 }
 
 .form-container {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
 }
 
 .form-control {
   color: white;
   background-color: #0fbed92a !important;
   border: 1px #0fbdd96e solid;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
 }
 
 .form-control:focus {
