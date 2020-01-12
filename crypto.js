@@ -80,7 +80,7 @@ function refresh() {
       const marketCapRank = data.market_cap_rank;
 
       // Display all data
-      const coinInfo = `The current price of Quant Network is $${formatNumber(
+      const coinInfo = `The current price of Quant Network Token is $${formatNumber(
         currentPrice,
         4,
       )} ( Ƀ${satoshiPrice.toFixed(8)} ) with a current market cap of $${formatNumber(
@@ -128,9 +128,9 @@ function simulateFuturePrice() {
     portfolioAmount,
     2,
   )}. With the market cap and the circulating supply specified, QNT coin will worth $${formatNumber(
-  qntFuturePrice,
-  2,
-)}
+    qntFuturePrice,
+    2,
+  )}
     `;
 }
 
