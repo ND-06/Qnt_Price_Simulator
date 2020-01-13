@@ -30,7 +30,6 @@ const formatNumber = (num, rounder) => {
   // eslint-disable-next-line no-param-reassign
   num = num.toFixed(rounder);
   const numSplit = num.split('.');
-
   // eslint-disable-next-line prefer-destructuring
   let int = numSplit[0];
   if (int.length > 3) {
@@ -125,7 +124,6 @@ function refresh() {
 }
 
 // Function created to calculate the future value of QNT Price and Porfolio worth
-
 function simulateFuturePrice() {
   const mc = marketCapInput.getNumber();
   const cs = circSupplyInput.getNumber();
@@ -137,7 +135,7 @@ function simulateFuturePrice() {
       Your QNT portfolio will worth $${formatNumber(
     portfolioAmount,
     2,
-  )}. With the market cap and the circulating supply specified, QNT coin will worth $${formatNumber(
+  )}. With the marketcap and the circulating supply specified, QNT coin will worth $${formatNumber(
     qntFuturePrice,
     2,
   )}
@@ -157,7 +155,7 @@ const setupEventListeners = () => {
 
 setupEventListeners();
 
-// Create a function to set the circ supply input directly at 42046512
+// Create a function to set the circ supply input directly at 12072738
 // ( real circ supply ) and set directly the current mcap (by calling API) in corresponding inputs
 // and let to the user the possibily to modify theses values
 async function circSupplyAndMcapInInputs() {
