@@ -95,12 +95,13 @@ input {
 .buttons-container {
   display: flex;
   justify-content: center;
-  font-size: 1.6rem;
 }
 
 .btn-info {
   background-color: transparent;
   color: white;
+  margin-right: 1.2rem;
+  font-size: 1.65rem;
 }
 
 .btn-info:hover {
