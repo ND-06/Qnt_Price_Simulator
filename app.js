@@ -18,7 +18,7 @@ particlesJS(
   {
     particles: {
       number: {
-        value: 80,
+        value: 65,
         density: {
           enable: true,
           value_area: 800,
@@ -43,35 +43,35 @@ particlesJS(
         },
       },
       opacity: {
-        value: 0.5,
+        value: 0.3,
         random: false,
         anim: {
           enable: false,
-          speed: 1,
+          speed: 3,
           opacity_min: 0.1,
           sync: false,
         },
       },
       size: {
-        value: 5,
+        value: 4,
         random: true,
         anim: {
           enable: false,
-          speed: 40,
-          size_min: 0.1,
+          speed: 65,
+          size_min: 0.2,
           sync: false,
         },
       },
       line_linked: {
         enable: true,
-        distance: 150,
+        distance: 200,
         color: '#ffffff',
-        opacity: 0.4,
+        opacity: 0.38,
         width: 1,
       },
       move: {
         enable: true,
-        speed: 6,
+        speed: 2,
         direction: 'none',
         random: false,
         straight: false,
@@ -87,11 +87,11 @@ particlesJS(
       detect_on: 'canvas',
       events: {
         onhover: {
-          enable: true,
+          enable: false,
           mode: 'repulse',
         },
         onclick: {
-          enable: true,
+          enable: false,
           mode: 'push',
         },
         resize: true,
@@ -100,7 +100,7 @@ particlesJS(
         grab: {
           distance: 400,
           line_linked: {
-            opacity: 1,
+            opacity: 0.4,
           },
         },
         bubble: {
@@ -108,7 +108,7 @@ particlesJS(
           size: 40,
           duration: 2,
           opacity: 8,
-          speed: 3,
+          speed: 2,
         },
         repulse: {
           distance: 200,
