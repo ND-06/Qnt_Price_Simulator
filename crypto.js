@@ -105,7 +105,8 @@ function refresh() {
       Volume in 24 Hours : $${formatNumber(volumeIn24H, 2)} <br>
       QNT market cap rank #${marketCapRank} <br>
       In comparison, XRP currently has a Market Cap of $${formatNumber(xrpMcap, 2)} <br>
-      QNT current market cap is only ${(currentMarketCap / xrpMcap).toFixed(2)} % of XRP current market cap
+      QNT current market cap is only ${((currentMarketCap / xrpMcap).toFixed(2) * 100)}% of XRP current market cap
+
       `;
 
       return coinInfo;
