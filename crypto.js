@@ -4,7 +4,6 @@
 let portfolioAmount;
 let qntFuturePrice;
 let button;
-let xrpMarketCap;
 
 const marketCapInput = new AutoNumeric('#marketcapInput', {
   noEventListeners: false,
