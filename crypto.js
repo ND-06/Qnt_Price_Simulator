@@ -22,6 +22,7 @@ const tokenQuantityInput = new AutoNumeric('#tokenquantityInput', {
 
 const result = document.querySelector('#resultParagraph');
 const coinInfoParagraph = document.querySelector('#cryptoinfo');
+
 /* eslint-disable no-const-assign */
 
 const formatNumber = (num, rounder) => {
@@ -48,66 +49,67 @@ function refresh() {
   async function getPriceAndMcap() {
     try {
       const quantDataResult = await fetch(
-        'https://api.coingecko.com/api/v3/coins/quant-network',
+        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=quant-network&order=market_cap_desc&per_page=100&page=1&sparkline=false'
       );
-      const rippleDataResult = await fetch(
+      
+      /*const rippleDataResult = await fetch(
         'https://api.coingecko.com/api/v3/coins/ripple',
-      );
+      );*/
+      
       const quantData = await quantDataResult.json();
-      const rippleData = await rippleDataResult.json();
       // get current price in USD
-      const currentPrice = quantData.market_data.current_price.usd;
+      const currentPrice = quantData[0].current_price;
+
+      //const rippleData = await rippleDataResult.json();
+      
       // Hardcode current CircSupply due to false circSupply data from API
       const currentCirculatingSupply = 12072738;
       // calculate the real mcap with the real circulating supply ( not from API )
       const currentMarketCap = currentPrice * currentCirculatingSupply;
       // get current price in BTC
-      const satoshiPrice = quantData.tickers[4].converted_last.btc;
+       
+      //const satoshiPrice = quantData.tickers[4].converted_last.btc;
+      
       // get Ath In BTC
-      const athInBtc = quantData.market_data.ath.btc;
-      // get Ath in USD
-      const athInUsd = quantData.market_data.ath.usd;
+      
+      //const athInBtc = quantData.market_data.ath.btc;
+      
+      // get Ath in USD      
+      const athInUsd = quantData[0].ath;
+      
       // get 24H traded volume
-      const volumeIn24H = quantData.market_data.total_volume.usd;
+      //const volumeIn24H = quantData.market_data.total_volume.usd;
       // get valuechange in 24h ( USD )
-      let usdValueChangeIn24H = quantData.market_data.price_change_percentage_24h_in_currency.usd;
+      //let usdValueChangeIn24H = quantData.market_data.price_change_percentage_24h_in_currency.usd;
       // round the percentage of usdValueChangeIn24H
-      usdValueChangeIn24H = usdValueChangeIn24H.toFixed(2);
+      //usdValueChangeIn24H = usdValueChangeIn24H.toFixed(2);
       // get valuechange in 24h ( BTC )
-      let btcValueChangeIn24H = quantData.market_data.price_change_percentage_24h_in_currency.btc;
+      //let btcValueChangeIn24H = quantData.market_data.price_change_percentage_24h_in_currency.btc;
       // round the percentage of btcValueChangeIn24H
-      btcValueChangeIn24H = btcValueChangeIn24H.toFixed(2);
+      //btcValueChangeIn24H = btcValueChangeIn24H.toFixed(2);
       // get valuechange in 24H ( ETH )
-      let ethValueChangeIn24H = quantData.market_data.price_change_percentage_24h_in_currency.eth;
+      //let ethValueChangeIn24H = quantData.market_data.price_change_percentage_24h_in_currency.eth;
       // round the percentage of ethValueChangeIn24H
-      ethValueChangeIn24H = ethValueChangeIn24H.toFixed(2);
+      //ethValueChangeIn24H = ethValueChangeIn24H.toFixed(2);
       // get current mcap rank
-      const marketCapRank = quantData.market_cap_rank;
+      const marketCapRank = quantData[0].market_cap_rank;
+
       // get XRP Current Mcap
-      const xrpMcap = rippleData.market_data.market_cap.usd;
+     // const xrpMcap = rippleData.market_data.market_cap.usd;
 
       // Display all data
-      const coinInfo = `The current price of Quant Network is $${formatNumber(
+      const coinInfo = `The current price of QNT Token is $${formatNumber(
         currentPrice,
-        4,
-      )} ( Ƀ${satoshiPrice.toFixed(8)} ) with a current market cap of $${formatNumber(
+        4,)} with a current market cap of $${formatNumber(
         currentMarketCap,
         2,
       )} and a current circulating supply of ${formatNumber(
         currentCirculatingSupply,
         2,
       )} tokens.<br>
-      USD Value change in 24H : ${usdValueChangeIn24H} % <br>
-      BTC Value change in 24H : ${btcValueChangeIn24H} % <br>
-      ETH Value change in 24H : ${ethValueChangeIn24H} % <br>
-      ATH in USD : $${athInUsd} <br>
-      ATH in BTC : Ƀ${formatNumber(athInBtc, 8)} <br>
-      Volume in 24 Hours : $${formatNumber(volumeIn24H, 2)} <br>
+     
       QNT market cap rank #${marketCapRank} <br>
-      In comparison, XRP currently has a Market Cap of $${formatNumber(xrpMcap, 2)} <br>
-      QNT current market cap is only ${((currentMarketCap / xrpMcap).toFixed(2) * 100)}% of XRP current market cap
-
-      `;
+      QNT ATH in USD : $${athInUsd}`;
 
       return coinInfo;
     } catch (error) {
@@ -137,7 +139,7 @@ function simulateFuturePrice() {
       Your QNT portfolio will worth $${formatNumber(
     portfolioAmount,
     2,
-  )}. With the market cap and the circulating supply specified, QNT coin will worth $${formatNumber(
+  )}. With the market cap and the circulating supply specified, QNT token will worth $${formatNumber(
   qntFuturePrice,
   2,
 )}
@@ -160,33 +162,28 @@ setupEventListeners();
 // Create a function to set the circ supply input directly at 42046512
 // ( real circ supply ) and set directly the current mcap (by calling API) in corresponding inputs
 // and let to the user the possibily to modify theses values
-async function circSupplyAndMcapInInputs() {
-  try {
-    const dataResult = await fetch(
-      'https://api.coingecko.com/api/v3/coins/quant-network',
-    );
-    const data = await dataResult.json();
+
+    //const dataResult = await fetch(
+    //  'https://api.coingecko.com/api/v3/coins/quant-network',
+    // );
+    // const data = await dataResult.json();
     // Hardcode current CircSupply due to false circSupply data from API
     const currentCirculatingSupply = 12072738;
     circSupplyInput.set(12072738, { readOnly: false });
 
-    // Get the current price of HPB by calling API , we need this information to calculate
+    // Get the current price of QNT by calling API , we need this information to calculate
     // the real marketcap ( cause CoinGecko API doesnt have the right circ supply of HPB)
-    const currentPrice = data.market_data.current_price.usd;
+    // const currentPrice = data.market_data.current_price.usd;
 
     // calculate the real mcap with the real circulating supply ( not from API )
-    const currentMarketCap = currentPrice * currentCirculatingSupply;
+    // const currentMarketCap = currentPrice * currentCirculatingSupply;
     // Set directly the marketCap into marketCap Input ( and let the user modify this value too)
-    marketCapInput.set(currentMarketCap, { readOnly: false });
-  } catch (error) {
-    return error;
-  }
-}
+    // marketCapInput.set(currentMarketCap, { readOnly: false });
 
-circSupplyAndMcapInInputs();
+//circSupplyAndMcapInInputs();
 
 // Refresh getPriceAndMcap function with the API Call each 650 ms
 // in order to get fresh live informations in our App
 window.setInterval(() => {
   refresh();
-}, 650);
+}, 750);
