@@ -23,7 +23,12 @@ body {
   align-items: center;
   text-align: center;
   margin: 0 auto;
-  max-height: 22vh;
+  max-height: 26vh;
+}
+
+.img-fluid {
+  max-width: 45%;
+  height: auto;
 }
 
 h1 {
