@@ -27,8 +27,8 @@ body {
 }
 
 .img-fluid {
-  max-width: 45%;
-  height: auto;
+  max-width: 50% !important;
+  height: auto !important;
 }
 
 h1 {
