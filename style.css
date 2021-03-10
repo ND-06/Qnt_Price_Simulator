@@ -27,7 +27,7 @@ body {
 }
 
 .img-fluid {
-  max-width: 50% !important;
+  max-width: 100% !important;
   height: auto !important;
 }
 
