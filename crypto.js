@@ -166,8 +166,8 @@ async function circSupplyAndMcapInInputs() {
     );
     const data = await dataResult.json();
     // Hardcode current CircSupply due to false circSupply data from API
-    const currentCirculatingSupply = 12072738;
-    circSupplyInput.set(12072738, { readOnly: false });
+    const currentCirculatingSupply = 12800000;
+    circSupplyInput.set(12800000, { readOnly: false });
 
     // Get the current price of QNT by calling API , we need this information to calculate
     // the real marketcap ( cause CoinGecko API doesnt have the right circ supply of QNT)
