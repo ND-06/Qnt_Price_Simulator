@@ -58,7 +58,7 @@ function refresh() {
       // get current price in USD
       const currentPrice = quantData.market_data.current_price.usd;
       // Hardcode current CircSupply due to false circSupply data from API
-      const currentCirculatingSupply = 12072738;
+      const currentCirculatingSupply = 12800000;
       // calculate the real mcap with the real circulating supply ( not from API )
       const currentMarketCap = currentPrice * currentCirculatingSupply;
       // get current price in BTC
